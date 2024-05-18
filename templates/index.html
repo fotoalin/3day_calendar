@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Day Calendar</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.5.0"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .calendar { display: flex; justify-content: center; margin: 20px 0; }
+        .day { margin: 0 10px; padding: 2em; border: 1px solid #ccc; text-align: center; width: 100px; }
+        .day.selected { background-color: #f0f0f0; }
+        .controls { display: flex; justify-content: center; }
+        button { padding: 10px 20px; margin: 0 10px; }
+    </style>
+</head>
+<body>
+    <div class="controls p-4">
+
+        <button id="prev" class="px-8 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" hx-get="prev-day" hx-target="#calendar" hx-swap="innerHTML">&laquo;</button>        
+        <div id="calendar" class="" hx-get="/calendar/{{ current_date }}" hx-trigger="load">
+            {% include "calendar.html" %}
+        </div>
+        <button id="next" class="px-8 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" hx-get="next-day" hx-target="#calendar" hx-swap="innerHTML">&raquo;</button>    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+<button hx-post="/save_date/{{current_date}}" hx-swap="none" class="p-8 border rounded text-center text-blue-500 {% if selected_date|format_date == current_date|format_date %}bg-purple-50 border-2 border-purple-500{% endif %}">{{ current_date|format_date }}</button>
