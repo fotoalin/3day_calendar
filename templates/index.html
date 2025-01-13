@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <div class="controls p-4">
+    <div id="three-day-calendar" class="controls p-4">
         <button id="prev" class="px-8 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" hx-get="prev-day" hx-target="#calendar" hx-swap="innerHTML">&laquo;</button>        
         <div id="calendar" class="" hx-get="/calendar/{{ current_date }}" hx-trigger="load">
             {% include "calendar.html" %}
