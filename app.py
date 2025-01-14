@@ -95,9 +95,7 @@ def get_prev_day():
         prev_day = datetime.strptime(date_str, "%Y-%m-%d")
     else:
         prev_day = datetime.now()
-    prev_day = prev_day - timedelta(
-        days=1
-    )  # change this to 3 days so that we can see the previous 3 days
+    prev_day = prev_day - timedelta(days=1)  # change this to 3 days so that we can see the previous 3 days
 
     days = [get_day_data(prev_day + timedelta(days=i)) for i in range(-1, 2)]
     session["days"] = days
@@ -108,9 +106,7 @@ def get_prev_day():
 
     context = {
         "days": days,
-        "prev_date": (prev_day - timedelta(days=1))
-        .date()
-        .isoformat(),  # "prev_date": "2021-09-01
+        "prev_date": (prev_day - timedelta(days=1)).date().isoformat(),  # "prev_date": "2021-09-01
         "current_date": prev_day.date().isoformat(),
         "next_date": (prev_day + timedelta(days=1)).date().isoformat(),
         "selected_date": session.get("selected_date"),
